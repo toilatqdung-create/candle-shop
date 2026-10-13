@@ -207,13 +207,21 @@
       } catch (e) { /* bỏ qua */ }
       return { demo: true };
     }
-    // text/plain + no-cors để tránh lỗi CORS preflight khi gọi từ GitHub Pages
-    await fetch(C.orderWebhookUrl, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "text/plain;charset=UTF-8" },
-      body: JSON.stringify(order),
+    // Gửi dạng form để Make tách sẵn thành từng trường (code, text, name, phone...)
+    const body = new URLSearchParams({
+      code: order.code,
+      text: order.text,
+      name: order.customer.name,
+      phone: order.customer.phone,
+      address: order.customer.address,
+      note: order.customer.note,
+      payment: order.payment,
+      subtotal: order.subtotal,
+      shipping: order.shipping,
+      total: order.total,
+      items: JSON.stringify(order.items),
     });
+    await fetch(C.orderWebhookUrl, { method: "POST", mode: "no-cors", body });
     return { demo: false };
   }
 
