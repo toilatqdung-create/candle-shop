@@ -220,6 +220,12 @@
       shipping: order.shipping,
       total: order.total,
       itemsText: order.items.map((i) => i.name + " x" + i.qty).join(", "),
+      line:
+      "🧾 " + order.code + "\n" +
+      "👤 " + order.customer.name + "\n" +
+      "🛒 " + order.items.map((i) => i.name + " x" + i.qty).join(", ") + "\n" +
+      "💰 " + fmt(order.total) + " · " + (order.payment === "cod" ? "COD" : "Chuyển khoản") + "\n" +
+      "───────────",
       items: JSON.stringify(order.items),
     });
     await fetch(C.orderWebhookUrl, { method: "POST", mode: "no-cors", body });
