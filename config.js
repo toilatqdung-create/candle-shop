@@ -10,7 +10,7 @@ window.SHOP_CONFIG = {
 
   // Webhook nhận đơn (Make.com / n8n). Để trống = chế độ DEMO (đơn chỉ in ra console).
   // Ví dụ: "https://hook.eu2.make.com/xxxxxxxxxxxx"
-  orderWebhookUrl: "",
+  orderWebhookUrl: "https://hook.eu1.make.com/af7ucvoptqpkqjq0hvb1nvrt3avjbz9d",
 
   // Thông tin chuyển khoản để sinh mã VietQR
   // bankId: mã ngân hàng theo VietQR (MB, VCB, TCB, ACB, BIDV, VPB, TPB...)
