@@ -219,6 +219,7 @@
       subtotal: order.subtotal,
       shipping: order.shipping,
       total: order.total,
+      itemsText: order.items.map((i) => i.name + " x" + i.qty).join(", "),
       items: JSON.stringify(order.items),
     });
     await fetch(C.orderWebhookUrl, { method: "POST", mode: "no-cors", body });
