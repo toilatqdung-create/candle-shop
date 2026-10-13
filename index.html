@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ánh Hương — Nến thơm sáp đậu nành</title>
+  <meta name="description" content="Nến thơm sáp đậu nành đổ tay từng mẻ, ủ đủ ngày, giao toàn quốc." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" id="brandName">Ánh Hương</a>
+    <nav class="nav">
+      <a href="#san-pham">Sản phẩm</a>
+      <a href="#cau-chuyen">Câu chuyện</a>
+      <a href="#cach-dung">Cách dùng</a>
+      <a href="#faq">Hỏi đáp</a>
+    </nav>
+    <button class="cart-btn" id="openCart" aria-label="Mở giỏ hàng">
+      Giỏ hàng <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">Đổ tay · Sáp đậu nành · Ủ đủ 14 ngày</p>
+        <h1>Một ngọn nến nhỏ,<br />một buổi tối dịu lại.</h1>
+        <p class="lead" id="tagline">Nến thơm sáp đậu nành, đổ tay từng mẻ</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#san-pham">Chọn mùi hương</a>
+          <a class="btn btn-ghost" href="#cau-chuyen">Câu chuyện của nến</a>
+        </div>
+      </div>
+      <div class="hero-art" id="heroArt" aria-hidden="true"></div>
+    </section>
+
+    <section class="section" id="san-pham">
+      <h2>Mùi hương</h2>
+      <p class="section-sub">Mỗi mẻ chỉ đổ số lượng nhỏ để giữ mùi hương trọn vẹn nhất.</p>
+      <div class="grid" id="productGrid"></div>
+    </section>
+
+    <section class="section alt" id="cau-chuyen">
+      <h2>Vì sao là Ánh Hương</h2>
+      <div class="values">
+        <article>
+          <h3>Sáp đậu nành 100%</h3>
+          <p>Cháy sạch, ít khói đen, mùi hương lan nhẹ và đều trong căn phòng.</p>
+        </article>
+        <article>
+          <h3>Ủ đủ ngày</h3>
+          <p>Mỗi mẻ được ủ khoảng 14 ngày trước khi bán để hương liên kết với sáp và tỏa tốt hơn.</p>
+        </article>
+        <article>
+          <h3>Đổ tay theo mẻ</h3>
+          <p>Mã mẻ in dưới đáy hũ. Bạn luôn biết nến mình mua đổ vào ngày nào.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="cach-dung">
+      <h2>Dùng nến sao cho đẹp và bền</h2>
+      <ol class="steps">
+        <li><strong>Lần đầu đốt ít nhất 2–3 giờ</strong> để mặt nến chảy đều, tránh bị "đào hầm".</li>
+        <li><strong>Cắt bấc còn khoảng 5mm</strong> trước mỗi lần đốt để ngọn lửa gọn, không khói.</li>
+        <li><strong>Mỗi lần đốt không quá 4 giờ</strong>, để nguội hẳn rồi mới đốt lại.</li>
+        <li><strong>Để nơi thoáng, tránh gió và tầm tay trẻ nhỏ, thú cưng.</strong> Không bao giờ để nến cháy khi không có người.</li>
+      </ol>
+    </section>
+
+    <section class="section alt" id="faq">
+      <h2>Hỏi đáp nhanh</h2>
+      <div class="faq">
+        <details>
+          <summary>Giao hàng mất bao lâu?</summary>
+          <p>Nội thành 1–2 ngày, các tỉnh 2–4 ngày. Nến được bọc chống sốc kỹ trước khi gửi.</p>
+        </details>
+        <details>
+          <summary>Phí vận chuyển thế nào?</summary>
+          <p id="faqShip">Đồng giá toàn quốc. Miễn phí cho đơn từ mức quy định.</p>
+        </details>
+        <details>
+          <summary>Thanh toán bằng cách nào?</summary>
+          <p>Bạn chọn COD (trả khi nhận hàng) hoặc chuyển khoản nhanh bằng mã VietQR hiện ngay sau khi đặt đơn.</p>
+        </details>
+        <details>
+          <summary>Nến cháy được bao lâu?</summary>
+          <p>Hũ 180g cháy khoảng 40 giờ nếu bạn đốt đúng cách.</p>
+        </details>
+        <details>
+          <summary>Có đổi trả không?</summary>
+          <p>Nếu nến vỡ hoặc lỗi trong quá trình vận chuyển, nhắn shop kèm ảnh trong 48 giờ, shop sẽ đổi mới cho bạn.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <strong id="footBrand">Ánh Hương</strong>
+      <p>Nến thơm sáp đậu nành đổ tay.</p>
+    </div>
+    <div>
+      <p>Hotline: <span id="footPhone"></span></p>
+      <p>Email: <span id="footEmail"></span></p>
+      <p><a id="footFanpage" href="#" target="_blank" rel="noopener">Fanpage Facebook</a></p>
+    </div>
+    <p class="copy">© <span id="year"></span> <span id="footBrand2"></span>. Bản demo.</p>
+  </footer>
+
+  <!-- Giỏ hàng -->
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-head">
+      <h3>Giỏ hàng</h3>
+      <button class="icon-btn" id="closeCart" aria-label="Đóng">✕</button>
+    </div>
+    <div class="drawer-body" id="cartItems"></div>
+    <div class="drawer-foot">
+      <div class="row"><span>Tạm tính</span><span id="cartSubtotal">0đ</span></div>
+      <div class="row"><span>Phí vận chuyển</span><span id="cartShip">0đ</span></div>
+      <div class="row total"><span>Tổng cộng</span><span id="cartTotal">0đ</span></div>
+      <p class="hint" id="shipHint"></p>
+      <button class="btn btn-primary full" id="checkoutBtn">Đặt hàng</button>
+    </div>
+  </aside>
+
+  <!-- Đặt hàng -->
+  <dialog id="checkoutDialog">
+    <div id="checkoutView">
+      <div class="drawer-head">
+        <h3>Thông tin đặt hàng</h3>
+        <button class="icon-btn" id="closeCheckout" aria-label="Đóng">✕</button>
+      </div>
+      <form id="orderForm" novalidate>
+        <label>Họ và tên
+          <input name="name" required autocomplete="name" placeholder="Nguyễn Văn A" />
+        </label>
+        <label>Số điện thoại
+          <input name="phone" required inputmode="tel" autocomplete="tel" placeholder="09xx xxx xxx" />
+        </label>
+        <label>Địa chỉ nhận hàng
+          <textarea name="address" rows="2" required autocomplete="street-address" placeholder="Số nhà, đường, phường/xã, quận/huyện, tỉnh/thành"></textarea>
+        </label>
+        <label>Ghi chú (tuỳ chọn)
+          <textarea name="note" rows="2" placeholder="Ví dụ: gói quà, giao giờ hành chính..."></textarea>
+        </label>
+        <fieldset>
+          <legend>Thanh toán</legend>
+          <label class="radio"><input type="radio" name="payment" value="cod" checked /> Trả tiền khi nhận hàng (COD)</label>
+          <label class="radio"><input type="radio" name="payment" value="bank" /> Chuyển khoản (hiện mã VietQR sau khi đặt)</label>
+        </fieldset>
+        <p class="form-error" id="formError" role="alert"></p>
+        <div class="row total"><span>Tổng thanh toán</span><span id="formTotal">0đ</span></div>
+        <button class="btn btn-primary full" type="submit" id="submitBtn">Xác nhận đặt hàng</button>
+      </form>
+    </div>
+
+    <div id="successView" hidden>
+      <div class="drawer-head">
+        <h3>Đặt hàng thành công</h3>
+        <button class="icon-btn" id="closeSuccess" aria-label="Đóng">✕</button>
+      </div>
+      <div class="success">
+        <p>Cảm ơn bạn! Mã đơn của bạn là</p>
+        <p class="order-code" id="orderCode"></p>
+        <p id="successMsg"></p>
+        <div id="qrBox" hidden>
+          <img id="qrImg" alt="Mã VietQR thanh toán" />
+          <p class="hint">Quét mã bằng app ngân hàng. Nội dung chuyển khoản đã được điền sẵn, vui lòng giữ nguyên.</p>
+        </div>
+        <p class="demo-note" id="demoNote" hidden></p>
+        <button class="btn btn-primary full" id="doneBtn">Đóng</button>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="config.js"></script>
+  <script src="products.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
