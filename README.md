@@ -1,65 +1,41 @@
-# Website nến thơm — bản demo (Hướng A)
+# Website nến thơm: giao diện mới, song ngữ VI / EN
 
-Website tĩnh (HTML/CSS/JS thuần), không cần cài thư viện hay build.
-
-## 1. Chạy thử trên localhost
-
-Mở terminal trong thư mục `candle-shop`, chạy MỘT trong các lệnh:
+Website tĩnh (HTML/CSS/JS thuần). Chạy thử trên máy:
 
 ```bash
-python3 -m http.server 8000     # nếu có Python
-# hoặc
-npx serve .                      # nếu có Node.js
+python3 -m http.server 8000     # rồi mở http://localhost:8000
 ```
 
-Mở trình duyệt: http://localhost:8000
+## Các file trong bản cập nhật này
 
-(Nên chạy qua server như trên thay vì bấm đúp file `index.html`, để hành vi giống khi lên GitHub Pages.)
-
-## 2. Tuỳ chỉnh
-
-| Muốn đổi gì | Sửa file |
+| File | Việc của file |
 |---|---|
-| Tên shop, hotline, fanpage, phí ship, ngân hàng, webhook | `config.js` |
-| Mùi hương, giá, mô tả | `products.js` |
-| Màu sắc, font | `styles.css` (biến `:root` ở đầu file) |
-| Nội dung câu chuyện, cách dùng, hỏi đáp | `index.html` |
+| `index.html` | Khung trang |
+| `styles.css` | Toàn bộ giao diện (màu, chữ, bố cục) |
+| `script.js` | Giỏ hàng, đặt đơn, đổi mùi hương, đổi ngôn ngữ |
+| `i18n.js` | **Toàn bộ chữ trên web, tiếng Việt và tiếng Anh** |
+| `products.js` | Sản phẩm song ngữ (tên, mô tả, tháp hương, giá, màu) |
 
-Dùng ảnh thật: bỏ ảnh vào thư mục `images/`, rồi thêm `image: "images/ten-anh.jpg"` vào sản phẩm trong `products.js`.
+**Không có `config.js` trong gói này.** Giữ nguyên `config.js` hiện có trong repo của bạn (nơi chứa webhook Make và thông tin ngân hàng). Bản mới vẫn đọc các mục `brand`, `phone`, `email`, `fanpage`, `orderWebhookUrl`, `bank`, `shippingFee`, `freeShipFrom`, `orderPrefix` như cũ.
 
-## 3. Đưa lên GitHub Pages
+## Cập nhật lên GitHub
 
-1. Tạo repo mới trên GitHub (ví dụ `candle-shop`), để Public.
-2. Trong thư mục dự án:
-   ```bash
-   git init
-   git add .
-   git commit -m "Website nen thom"
-   git branch -M main
-   git remote add origin https://github.com/<ten-ban>/candle-shop.git
-   git push -u origin main
-   ```
-3. Vào repo → **Settings → Pages** → Source: **Deploy from a branch** → Branch: `main` / `(root)` → Save.
-4. Sau 1–2 phút web chạy tại `https://<ten-ban>.github.io/candle-shop/`.
+Trong repo, bấm **Add file → Upload files**, kéo 5 file ở bảng trên vào (file nào trùng tên sẽ được thay), rồi **Commit changes**. Đợi 1-2 phút và nhấn Ctrl+F5 trên web.
 
-Khi có domain riêng: Settings → Pages → Custom domain, rồi trỏ DNS (CNAME) về `<ten-ban>.github.io`. Bật "Enforce HTTPS".
+## Song ngữ
 
-## 4. Nhận đơn về Telegram (qua Make.com)
+- Khách bấm **VI / EN** trên đầu trang. Lựa chọn được nhớ cho lần sau.
+- Lần đầu vào, web tự chọn tiếng Việt nếu trình duyệt là tiếng Việt, ngược lại hiện tiếng Anh.
+- Gửi link riêng từng ngôn ngữ: `...candle-shop/?lang=en` hoặc `?lang=vi`.
+- **Tin Telegram về shop luôn bằng tiếng Việt** (tên sản phẩm, tiền, trường `line` và `itemsText`), dù khách đặt bằng ngôn ngữ nào. Đơn của khách xem bản tiếng Anh có thêm dòng "🌐 Khách xem bản tiếng Anh" để bạn trả lời đúng ngôn ngữ. Nhờ vậy Make và kho dữ liệu hiện tại chạy tiếp, không phải sửa gì.
 
-Website gửi mỗi đơn dưới dạng JSON tới một webhook. Trường `text` đã là tin nhắn dựng sẵn.
+## Sửa nội dung
 
-1. **Tạo bot Telegram:** chat với `@BotFather` → `/newbot` → lấy **token**.
-2. Tạo nhóm Telegram (bật Topics nếu muốn), thêm bot vào nhóm. Lấy `chat_id` của nhóm (thêm `@RawDataBot` vào nhóm một lúc để xem id, rồi xoá nó).
-3. Trên **make.com** tạo scenario:
-   - Module 1: **Webhooks → Custom webhook** (copy URL webhook).
-   - Module 2: **Telegram Bot → Send a Text Message or a Reply**, chọn kết nối bằng token, Chat ID = id nhóm, Text = trường `text` từ webhook.
-   - (Tuỳ chọn) Module 3: **Google Sheets → Add a Row** để lưu đơn vào sheet.
-4. Dán URL webhook vào `orderWebhookUrl` trong `config.js`, đẩy lại lên GitHub.
+- **Chữ trên web:** sửa trong `i18n.js`. Mỗi dòng có hai bản `vi` và `en`, nhớ sửa cả hai.
+- **Sản phẩm:** sửa `products.js`. Mỗi chữ cần cả `vi` và `en`. `colors` quyết định màu hũ nến, màu sáp và ánh sáng ở đầu trang khi chọn mùi đó. Có ảnh thật thì thêm `image: "images/ten-anh.jpg"`.
+- **Thêm sản phẩm thứ 7 trở lên:** thêm một khối vào `products.js`. Tiêu đề "Sáu mùi hương" nằm ở khoá `scents.title` trong `i18n.js`, nhớ đổi lại cho khớp số lượng.
+- **Màu sắc, chữ:** biến `:root` ở đầu `styles.css`.
 
-Lưu ý bảo mật: **không bao giờ để token bot Telegram trong code web** (ai cũng xem được). Token chỉ nằm trong Make/n8n. Webhook URL thì khó đoán nhưng vẫn công khai, nên nếu bị spam hãy chuyển sang n8n/Cloudflare Worker có kiểm tra thêm.
+## Phông chữ
 
-## 5. Giới hạn của bản demo
-
-- Giỏ hàng lưu trong trình duyệt của khách, chưa có tài khoản hay trừ tồn kho tự động.
-- Mã VietQR chỉ là gợi ý thanh toán, chưa tự xác nhận tiền về. Bạn đối soát thủ công (hoặc dùng PayOS/Casso sau này).
-- Chưa có chống spam đơn ảo. Khi chạy thật nên thêm kiểm tra (ví dụ Cloudflare Turnstile).
+Web dùng Fraunces (tiêu đề) và Be Vietnam Pro (nội dung) tải từ Google Fonts, nên cần có mạng. Khi offline, trình duyệt dùng phông thay thế và giao diện vẫn dùng được.

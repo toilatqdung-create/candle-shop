@@ -1,65 +1,109 @@
-// ====== DANH SÁCH SẢN PHẨM MẪU — thay bằng mùi hương thật của bạn ======
-// colors: [màu sáp, màu hũ] dùng để vẽ hình nến minh họa khi chưa có ảnh thật.
-// Có ảnh thật: thêm  image: "images/ten-file.jpg"  vào sản phẩm.
+// ====== DANH SÁCH SẢN PHẨM MẪU (song ngữ) — thay bằng mùi hương thật của bạn ======
+// Mỗi chữ có hai bản: vi (tiếng Việt) và en (tiếng Anh).
+// notes: tháp hương gồm hương đầu (top), hương giữa (heart), hương cuối (base).
+// colors: wax = màu sáp, jar = màu hũ, glow = màu ánh sáng toả ra ở đầu trang.
+// burn: số giờ cháy. Có ảnh thật: thêm  image: "images/ten-file.jpg"  vào sản phẩm.
 window.PRODUCTS = [
   {
     id: "oai-huong",
-    name: "Oải Hương Chiều Muộn",
-    notes: "Oải hương · Cam bergamot · Xạ hương trắng",
-    desc: "Dịu và thư giãn, hợp phòng ngủ và những buổi tối cần chậm lại.",
+    name: { vi: "Oải Hương Chiều Muộn", en: "Lavender Dusk" },
+    notes: {
+      top: { vi: "Cam bergamot", en: "Bergamot" },
+      heart: { vi: "Oải hương", en: "Lavender" },
+      base: { vi: "Xạ hương trắng", en: "White musk" },
+    },
+    desc: {
+      vi: "Dịu và thư giãn, hợp phòng ngủ và những buổi tối cần chậm lại.",
+      en: "Soft and calming. Made for bedrooms and evenings that need to slow down.",
+    },
     price: 189000,
     size: "180g",
-    burn: "~40 giờ",
-    colors: ["#d9cfe6", "#8b7aa8"],
+    burn: 40,
+    colors: { wax: "#d9cfe6", jar: "#7d6a9c", glow: "#b79be0" },
   },
   {
     id: "go-dan-huong",
-    name: "Gỗ Đàn Hương",
-    notes: "Đàn hương · Tuyết tùng · Vani",
-    desc: "Ấm, trầm và ôm lấy không gian, mùi hương gỗ nhẹ không gắt.",
+    name: { vi: "Gỗ Đàn Hương", en: "Sandalwood" },
+    notes: {
+      top: { vi: "Tuyết tùng", en: "Cedar" },
+      heart: { vi: "Đàn hương", en: "Sandalwood" },
+      base: { vi: "Vani", en: "Vanilla" },
+    },
+    desc: {
+      vi: "Ấm, trầm và ôm lấy không gian. Hương gỗ nhẹ, không gắt.",
+      en: "Warm and deep, it wraps around a room. A gentle wood scent that never turns sharp.",
+    },
     price: 199000,
     size: "180g",
-    burn: "~40 giờ",
-    colors: ["#e8d5b7", "#8a5a3c"],
+    burn: 40,
+    colors: { wax: "#e6d2b4", jar: "#7a4f33", glow: "#e0a56a" },
   },
   {
     id: "tra-trang",
-    name: "Trà Trắng & Lê",
-    notes: "Trà trắng · Lê xanh · Hoa nhài",
-    desc: "Thanh, sạch, tươi mát. Mùi hương dễ chịu cho phòng khách và góc làm việc.",
+    name: { vi: "Trà Trắng & Lê", en: "White Tea & Pear" },
+    notes: {
+      top: { vi: "Lê xanh", en: "Green pear" },
+      heart: { vi: "Hoa nhài", en: "Jasmine" },
+      base: { vi: "Trà trắng", en: "White tea" },
+    },
+    desc: {
+      vi: "Thanh, sạch, tươi mát. Dễ chịu cho phòng khách và góc làm việc.",
+      en: "Clean, fresh and light. Easy to live with in a living room or at a desk.",
+    },
     price: 179000,
     size: "180g",
-    burn: "~40 giờ",
-    colors: ["#eef1e4", "#9bae8a"],
+    burn: 40,
+    colors: { wax: "#eef0dc", jar: "#8ea37c", glow: "#cfe3a8" },
   },
   {
     id: "vani-caramel",
-    name: "Vani Caramel",
-    notes: "Vani Madagascar · Caramel · Hạt dẻ",
-    desc: "Ngọt ấm như mùi bánh vừa ra lò, nữ tính và dễ thương.",
+    name: { vi: "Vani Caramel", en: "Vanilla Caramel" },
+    notes: {
+      top: { vi: "Caramel", en: "Caramel" },
+      heart: { vi: "Vani Madagascar", en: "Madagascar vanilla" },
+      base: { vi: "Hạt dẻ", en: "Chestnut" },
+    },
+    desc: {
+      vi: "Ngọt ấm như mùi bánh vừa ra lò, nữ tính và dễ thương.",
+      en: "Sweet and warm, like a cake just out of the oven.",
+    },
     price: 189000,
     size: "180g",
-    burn: "~40 giờ",
-    colors: ["#f3dfb8", "#c98a4b"],
+    burn: 40,
+    colors: { wax: "#f3dcae", jar: "#b9772f", glow: "#f0b45a" },
   },
   {
     id: "rung-thong",
-    name: "Rừng Thông Sương Sớm",
-    notes: "Thông · Bạc hà · Rêu sồi",
-    desc: "Se lạnh và trong trẻo như buổi sáng trong rừng. Hợp nam giới và phòng làm việc.",
+    name: { vi: "Rừng Thông Sương Sớm", en: "Pine Forest Mist" },
+    notes: {
+      top: { vi: "Bạc hà", en: "Mint" },
+      heart: { vi: "Thông", en: "Pine" },
+      base: { vi: "Rêu sồi", en: "Oakmoss" },
+    },
+    desc: {
+      vi: "Se lạnh và trong trẻo như buổi sáng trong rừng. Hợp phòng làm việc.",
+      en: "Cool and clear like a morning in the forest. Good for a workroom.",
+    },
     price: 199000,
     size: "180g",
-    burn: "~40 giờ",
-    colors: ["#cfe0d6", "#4d6b5a"],
+    burn: 40,
+    colors: { wax: "#cfe0d6", jar: "#3f5e4d", glow: "#86c3a2" },
   },
   {
     id: "hoa-hong-gia",
-    name: "Hồng Cổ Điển",
-    notes: "Hoa hồng · Hoắc hương · Hổ phách",
-    desc: "Hồng nhung đằm sâu, lãng mạn nhưng không ngọt gắt. Món quà dễ tặng.",
+    name: { vi: "Hồng Cổ Điển", en: "Classic Rose" },
+    notes: {
+      top: { vi: "Hoa hồng", en: "Rose" },
+      heart: { vi: "Hoắc hương", en: "Patchouli" },
+      base: { vi: "Hổ phách", en: "Amber" },
+    },
+    desc: {
+      vi: "Hồng nhung đằm sâu, lãng mạn nhưng không ngọt gắt. Món quà dễ tặng.",
+      en: "A deep velvet rose, romantic without being sugary. An easy gift to give.",
+    },
     price: 209000,
     size: "180g",
-    burn: "~40 giờ",
-    colors: ["#f1d3d6", "#a6525c"],
+    burn: 40,
+    colors: { wax: "#f1d3d6", jar: "#9c4651", glow: "#e88a98" },
   },
 ];
