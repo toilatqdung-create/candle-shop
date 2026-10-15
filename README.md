@@ -22,6 +22,15 @@ python3 -m http.server 8000     # rồi mở http://localhost:8000
 
 Trong repo, bấm **Add file → Upload files**, kéo 5 file ở bảng trên vào (file nào trùng tên sẽ được thay), rồi **Commit changes**. Đợi 1-2 phút và nhấn Ctrl+F5 trên web.
 
+## Hiệu ứng mới
+
+- **Đầu trang là slider mùi hương:** bấm chấm màu, mũi tên, hoặc vuốt ngang. Nến trượt sang mùi mới, nền và ánh sáng đổi màu theo, có khói và tàn lửa. Tự chuyển sau vài giây nếu khách chưa bấm.
+- **Dải sản phẩm kéo ngang:** kéo chuột, vuốt tay hoặc dùng mũi tên, có thanh tiến trình.
+- **Xem nhanh:** bấm một sản phẩm, bảng chi tiết trượt từ bên phải ra (tháp hương, số lượng, nút thêm vào giỏ). Có mũi tên chuyển sang mùi kế tiếp mà không cần đóng.
+- **Thêm vào giỏ:** hũ nến bay vào biểu tượng giỏ hàng.
+- Thanh tiến trình cuộn trang, chữ chạy ngang, mốc quy trình sáng dần khi cuộn.
+- Người dùng bật chế độ giảm chuyển động trong hệ thống sẽ không thấy các hiệu ứng này.
+
 ## Song ngữ
 
 - Khách bấm **VI / EN** trên đầu trang. Lựa chọn được nhớ cho lần sau.

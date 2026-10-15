@@ -5,12 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ánh Hương — Nến thơm sáp đậu nành đổ tay</title>
   <meta id="metaDesc" name="description" content="Nến thơm sáp đậu nành đổ tay từng mẻ nhỏ, ủ 14 ngày, giao toàn quốc." />
+  <script>document.documentElement.classList.add("js");</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
   <header class="site-header">
     <a class="brand" href="#top" id="brandName">Ánh Hương</a>
     <nav class="nav">
@@ -31,23 +34,32 @@
 
   <main id="top">
     <!-- Đầu trang: ngọn nến được thắp lên, đổi theo mùi hương đang chọn -->
-    <section class="hero">
+    <section class="hero" id="hero">
+      <div class="sparks" id="sparks" aria-hidden="true"></div>
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <h1 data-i18n="hero.title"></h1>
+          <h1 id="heroTitle" data-i18n="hero.title"></h1>
           <p class="lead" data-i18n="hero.lead"></p>
         </div>
 
         <div class="hero-stage" id="heroStage">
-          <div class="candle-box">
+          <div class="candle-box" id="candleBox">
             <div class="stage-glow" aria-hidden="true"></div>
             <div id="heroCandle" aria-hidden="true"></div>
           </div>
-          <div class="chips" id="heroChips" role="group" data-i18n-aria="hero.pick"></div>
+          <div class="stage-ui">
+            <button class="round" id="heroPrev" type="button" data-i18n-aria="hero.prev">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+            </button>
+            <div class="chips" id="heroChips" role="group" data-i18n-aria="hero.pick"></div>
+            <button class="round" id="heroNext" type="button" data-i18n-aria="hero.next">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
         </div>
 
         <div class="hero-pick">
-          <h2 id="heroName"></h2>
+          <h2 class="mask"><span id="heroName"></span></h2>
           <dl class="notes">
             <div><dt data-i18n="hero.top"></dt><dd id="heroTop"></dd></div>
             <div><dt data-i18n="hero.heart"></dt><dd id="heroHeart"></dd></div>
@@ -62,23 +74,35 @@
       </div>
     </section>
 
-    <section class="section section--soy" id="scents">
+    <section class="section section--soy section--bleed" id="scents">
+      <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marqueeTrack"></div></div>
       <div class="wrap">
-        <div class="sec-head">
+        <div class="sec-head reveal">
           <h2 data-i18n="scents.title"></h2>
           <p class="sec-sub" data-i18n="scents.sub"></p>
         </div>
-        <div class="grid" id="productGrid"></div>
+      </div>
+      <div class="rail" id="productGrid"></div>
+      <div class="wrap rail-ui">
+        <div class="rail-progress" aria-hidden="true"><span id="railBar"></span></div>
+        <div class="rail-btns">
+          <button class="round" id="railPrev" type="button" data-i18n-aria="rail.prev">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+          </button>
+          <button class="round" id="railNext" type="button" data-i18n-aria="rail.next">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
       </div>
     </section>
 
     <section class="section section--soot" id="craft">
       <div class="wrap">
-        <div class="sec-head">
+        <div class="sec-head reveal">
           <h2 data-i18n="craft.title"></h2>
           <p class="sec-sub" data-i18n="craft.sub"></p>
         </div>
-        <ol class="steps">
+        <ol class="steps" id="steps">
           <li class="step">
             <p class="step-day" data-i18n="craft.s1.day"></p>
             <h3 data-i18n="craft.s1.h"></h3>
@@ -105,20 +129,20 @@
 
     <section class="section section--soy" id="care">
       <div class="wrap split">
-        <h2 data-i18n="care.title"></h2>
+        <h2 class="reveal" data-i18n="care.title"></h2>
         <ul class="tips">
-          <li><h3 data-i18n="care.t1.h"></h3><p data-i18n="care.t1.p"></p></li>
-          <li><h3 data-i18n="care.t2.h"></h3><p data-i18n="care.t2.p"></p></li>
-          <li><h3 data-i18n="care.t3.h"></h3><p data-i18n="care.t3.p"></p></li>
-          <li><h3 data-i18n="care.t4.h"></h3><p data-i18n="care.t4.p"></p></li>
+          <li class="reveal"><h3 data-i18n="care.t1.h"></h3><p data-i18n="care.t1.p"></p></li>
+          <li class="reveal"><h3 data-i18n="care.t2.h"></h3><p data-i18n="care.t2.p"></p></li>
+          <li class="reveal"><h3 data-i18n="care.t3.h"></h3><p data-i18n="care.t3.p"></p></li>
+          <li class="reveal"><h3 data-i18n="care.t4.h"></h3><p data-i18n="care.t4.p"></p></li>
         </ul>
       </div>
     </section>
 
     <section class="section section--soy2" id="faq">
       <div class="wrap split">
-        <h2 data-i18n="faq.title"></h2>
-        <div class="faq">
+        <h2 class="reveal" data-i18n="faq.title"></h2>
+        <div class="faq reveal">
           <details><summary data-i18n="faq.q1"></summary><p data-i18n="faq.a1"></p></details>
           <details><summary data-i18n="faq.q2"></summary><p data-i18n="faq.a2"></p></details>
           <details><summary data-i18n="faq.q3"></summary><p data-i18n="faq.a3"></p></details>
@@ -144,8 +168,25 @@
     </div>
   </footer>
 
-  <!-- Giỏ hàng -->
   <div class="overlay" id="overlay" hidden></div>
+
+  <!-- Panel xem nhanh sản phẩm, trượt từ bên phải -->
+  <aside class="panel" id="panel" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="panelName">
+    <div class="panel-top">
+      <div class="panel-nav">
+        <button class="round" id="panelPrev" type="button" data-i18n-aria="panel.prev">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <button class="round" id="panelNext" type="button" data-i18n-aria="panel.next">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+      <button class="icon-btn" id="panelClose" type="button" data-i18n-aria="panel.close">✕</button>
+    </div>
+    <div class="panel-body" id="panelBody"></div>
+  </aside>
+
+  <!-- Giỏ hàng -->
   <aside class="drawer" id="drawer" aria-hidden="true">
     <div class="drawer-head">
       <h3 data-i18n="cart.title"></h3>

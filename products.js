@@ -2,10 +2,13 @@
 // Mỗi chữ có hai bản: vi (tiếng Việt) và en (tiếng Anh).
 // notes: tháp hương gồm hương đầu (top), hương giữa (heart), hương cuối (base).
 // colors: wax = màu sáp, jar = màu hũ, glow = màu ánh sáng toả ra ở đầu trang.
+// mood: calm | warm | fresh | floral (dùng cho bộ lọc). word: một từ lớn hiện phía sau ngọn nến ở đầu trang.
 // burn: số giờ cháy. Có ảnh thật: thêm  image: "images/ten-file.jpg"  vào sản phẩm.
 window.PRODUCTS = [
   {
     id: "oai-huong",
+    mood: "calm",
+    word: { vi: "Oải hương", en: "Lavender" },
     name: { vi: "Oải Hương Chiều Muộn", en: "Lavender Dusk" },
     notes: {
       top: { vi: "Cam bergamot", en: "Bergamot" },
@@ -23,6 +26,8 @@ window.PRODUCTS = [
   },
   {
     id: "go-dan-huong",
+    mood: "warm",
+    word: { vi: "Đàn hương", en: "Sandal" },
     name: { vi: "Gỗ Đàn Hương", en: "Sandalwood" },
     notes: {
       top: { vi: "Tuyết tùng", en: "Cedar" },
@@ -40,6 +45,8 @@ window.PRODUCTS = [
   },
   {
     id: "tra-trang",
+    mood: "fresh",
+    word: { vi: "Trà trắng", en: "White tea" },
     name: { vi: "Trà Trắng & Lê", en: "White Tea & Pear" },
     notes: {
       top: { vi: "Lê xanh", en: "Green pear" },
@@ -57,6 +64,8 @@ window.PRODUCTS = [
   },
   {
     id: "vani-caramel",
+    mood: "warm",
+    word: { vi: "Vani", en: "Vanilla" },
     name: { vi: "Vani Caramel", en: "Vanilla Caramel" },
     notes: {
       top: { vi: "Caramel", en: "Caramel" },
@@ -74,6 +83,8 @@ window.PRODUCTS = [
   },
   {
     id: "rung-thong",
+    mood: "fresh",
+    word: { vi: "Thông", en: "Pine" },
     name: { vi: "Rừng Thông Sương Sớm", en: "Pine Forest Mist" },
     notes: {
       top: { vi: "Bạc hà", en: "Mint" },
@@ -91,6 +102,8 @@ window.PRODUCTS = [
   },
   {
     id: "hoa-hong-gia",
+    mood: "floral",
+    word: { vi: "Hoa hồng", en: "Rose" },
     name: { vi: "Hồng Cổ Điển", en: "Classic Rose" },
     notes: {
       top: { vi: "Hoa hồng", en: "Rose" },
